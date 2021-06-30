@@ -1,9 +1,9 @@
 module Select.Select.Clear exposing (svgPath, view)
 
-import Html exposing (Html)
+import Accessibility.Styled as Html exposing (..)
 import Select.Config exposing (Config)
-import Svg exposing (..)
-import Svg.Attributes as Attrs
+import Svg.Styled exposing (..)
+import Svg.Styled.Attributes as Attrs
 
 
 view : Config msg item -> Html msg

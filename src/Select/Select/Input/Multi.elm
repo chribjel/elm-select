@@ -1,7 +1,7 @@
 module Select.Select.Input.Multi exposing (view)
 
-import Html exposing (..)
-import Html.Attributes
+import Accessibility.Styled as Html exposing (..)
+import Html.Styled.Attributes
     exposing
         ( attribute
         , autocomplete
@@ -33,22 +33,14 @@ view config model availableItems selected maybeMatchedItems =
     [ currentSelection
         config
         selected
-    , input
-        (Shared.inputAttributes config model availableItems selected maybeMatchedItems
-            ++ [ value val ]
-            ++ (if List.isEmpty selected then
-                    [ placeholder config.prompt ]
-
-                else
-                    []
-               )
-        )
+    , Html.inputText
+        "haha"
         []
     ]
 
 
 currentSelection config selected =
-    div
+    button
         ([ class classNames.multiInputItemContainer ]
             ++ config.multiInputItemContainerAttrs
         )
@@ -59,7 +51,7 @@ currentSelection config selected =
 
 
 currentSelection_item config item =
-    div
+    button
         ([ class classNames.multiInputItem ]
             ++ config.multiInputItemAttrs
         )
@@ -84,9 +76,9 @@ currentSelection_item_maybeClear config item =
 
 
 currentSelection_item_clear config item =
-    div
+    button
         [ class classNames.multiInputItemRemove
         , Shared.onClickWithoutPropagation (Msg.OnRemoveItem item)
-            |> Html.Attributes.map config.toMsg
+            |> Html.Styled.Attributes.map config.toMsg
         ]
         [ RemoveItem.view config ]

@@ -1,7 +1,7 @@
 module Select.Select.Menu exposing (view)
 
-import Html exposing (..)
-import Html.Attributes exposing (class, style)
+import Accessibility.Styled as Html exposing (..)
+import Html.Styled.Attributes exposing (class, style)
 import Select.Config exposing (Config)
 import Select.Messages exposing (..)
 import Select.Models as Models exposing (State)
@@ -51,7 +51,7 @@ menu config state matchedItems selectedItems =
             matchedItems
                 |> List.indexedMap (Item.view config state itemCount selectedItems)
     in
-    div
+    button
         ([ class classNames.menu ]
             ++ menuStyles
             ++ config.menuAttrs

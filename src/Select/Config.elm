@@ -4,7 +4,7 @@ module Select.Config exposing
     , newConfig
     )
 
-import Html exposing (Attribute, Html)
+import Accessibility.Styled exposing (Attribute, Html)
 import Select.Messages exposing (Msg)
 
 

@@ -2,8 +2,8 @@ module Select.Select.RemoveItem exposing (svgPath, view)
 
 import Select.Config exposing (Config)
 import Select.Shared exposing (classNames)
-import Svg exposing (..)
-import Svg.Attributes as Attrs
+import Svg.Styled exposing (..)
+import Svg.Styled.Attributes as Attrs
 
 
 view : Config msg item -> Svg msg

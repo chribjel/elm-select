@@ -3,9 +3,9 @@ module Select.Select.Item exposing
     , viewNotFound
     )
 
-import Html exposing (..)
-import Html.Attributes exposing (attribute, class)
-import Html.Events exposing (onMouseDown)
+import Accessibility.Styled as Html exposing (..)
+import Html.Styled.Attributes exposing (attribute, class)
+import Html.Styled.Events exposing (onMouseDown)
 import Select.Config exposing (Config)
 import Select.Messages exposing (..)
 import Select.Models exposing (State)
@@ -49,7 +49,7 @@ view config state itemCount selectedItems index item =
                 Just fn ->
                     fn item
     in
-    div
+    button
         ([ class classNames.menuItem
          , class classNames.menuItemSelectable
          , attribute "data-select-item" label
@@ -69,6 +69,6 @@ viewNotFound config =
         text ""
 
     else
-        div
+        button
             ([ class classNames.menuItem ] ++ config.notFoundAttrs)
             [ text config.notFound ]

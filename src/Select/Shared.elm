@@ -12,10 +12,12 @@ module Select.Shared exposing
     , uniqueBy
     )
 
+-- import Html exposing (Attribute)
+
+import Accessibility.Styled as Html exposing (Attribute, Html)
 import Array
-import Html exposing (Attribute)
-import Html.Attributes exposing (attribute, autocomplete, class)
-import Html.Events exposing (keyCode, on, onFocus, onInput, preventDefaultOn, stopPropagationOn)
+import Html.Styled.Attributes exposing (attribute, autocomplete, class)
+import Html.Styled.Events exposing (keyCode, on, onFocus, onInput, preventDefaultOn, stopPropagationOn)
 import Json.Decode as Decode
 import Regex
 import Select.Config exposing (Config)
@@ -90,11 +92,11 @@ inputAttributes config model availableItems selectedItems maybeMatchedItems =
     in
     [ autocomplete False
     , attribute "autocorrect" "off" -- for mobile Safari
-    , onBlurAttribute config model |> Html.Attributes.map config.toMsg
-    , onKeyUpAttribute preselectedItem |> Html.Attributes.map config.toMsg
-    , onKeyPressAttribute preselectedItem |> Html.Attributes.map config.toMsg
-    , onInput Msg.OnQueryChange |> Html.Attributes.map config.toMsg
-    , onFocus Msg.OnFocus |> Html.Attributes.map config.toMsg
+    , onBlurAttribute config model |> Html.Styled.Attributes.map config.toMsg
+    , onKeyUpAttribute preselectedItem |> Html.Styled.Attributes.map config.toMsg
+    , onKeyPressAttribute preselectedItem |> Html.Styled.Attributes.map config.toMsg
+    , onInput Msg.OnQueryChange |> Html.Styled.Attributes.map config.toMsg
+    , onFocus Msg.OnFocus |> Html.Styled.Attributes.map config.toMsg
     , referenceAttr config model
     ]
         ++ [ class classNames.input ]
