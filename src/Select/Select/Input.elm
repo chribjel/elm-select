@@ -1,7 +1,7 @@
 module Select.Select.Input exposing (view)
 
-import Html exposing (..)
-import Html.Attributes
+import Accessibility.Styled as Html exposing (..)
+import Html.Styled.Attributes
     exposing
         ( class
         , placeholder
@@ -51,10 +51,10 @@ view config model availableItems selectedItems maybeMatchedItems =
 
 
 clear config =
-    div
+    button
         ([ class classNames.clear
          , Shared.onClickWithoutPropagation Msg.OnClear
-            |> Html.Attributes.map config.toMsg
+            |> Html.Styled.Attributes.map config.toMsg
          ]
             ++ config.clearAttrs
         )
@@ -81,7 +81,8 @@ singleInput config model availableItems selectedItems maybeMatchedItems =
                 Just query ->
                     query
     in
-    [ input
+    [ case config. of
+    , input
         (Shared.inputAttributes config model availableItems selectedItems maybeMatchedItems ++ [ value val, placeholder config.prompt ])
         []
     ]
